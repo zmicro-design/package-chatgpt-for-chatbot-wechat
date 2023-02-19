@@ -1,0 +1,33 @@
+#!/bin/bash
+
+help() {
+  echo "Usage:"
+  echo "  zmicro chatgpt-for-chatbot-wechat <args ...>"
+  echo ""
+
+  chatgpt-for-chatbot-wechat --help
+}
+
+version() {
+  chatgpt-for-chatbot-wechat --version
+}
+
+core() {
+  case $1 in
+  -h | --help | help)
+    help
+    ;;
+  -v | --version | version)
+    version
+    ;;
+  *)
+    chatgpt-for-chatbot-wechat "$@"
+    ;;
+  esac
+}
+
+run() {
+  core "$@"
+}
+
+run "$@"
